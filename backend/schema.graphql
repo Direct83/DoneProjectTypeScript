@@ -1,0 +1,9 @@
+type Query {
+  signout: String
+  check: String
+}
+
+type Mutation {
+  signUp(name: String, password: String, email: String ): {userId, name, message}
+  signIn(name: String, password: String, email: String ): {message, userId, userName}
+}
