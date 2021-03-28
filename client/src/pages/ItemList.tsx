@@ -11,17 +11,18 @@ interface ItemsType {
   price: number,
   img: string,
 }
+
 export default function ItemList() {
   const { userId } = useSelector((state: RootState) => state.auth)
   const [getItems] = useMutation(GET_ITEMS_GRAPH);
   const [addItem] = useMutation(ADD_ITEM_GRAPH);
   const [itemsState, setItemsState] = useState<ItemsType[]>([]);
   const [pagination, setPagination] = useState({ page: 1, limit: 6 })
-  const [itemsLength, setItemsLength] = useState()
+  const [itemsLength, setItemsLength] = useState<number>()
   useEffect(() => {
     (async () => {
-      const { data: { getItems: { items, itemsLength } } }: any = await getItems({ variables: pagination })
-      const allPages: any = Math.floor(itemsLength / pagination.limit)
+      const { data: { getItems: { items, itemsLength } } } = await getItems({ variables: pagination })
+      const allPages: number = Math.floor(itemsLength / pagination.limit)
       setItemsLength(allPages)
       setItemsState(items)
     })()
@@ -51,7 +52,7 @@ export default function ItemList() {
       <h1>ItemList</h1>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '900px', display: 'flex', flexDirection: 'row', flexWrap: "wrap" }}>
-          {itemsState.map((e: any) => {
+          {itemsState.map((e: ItemsType) => {
             return (
               <div key={e.id + 'b'} style={{
                 marginLeft: '50px', width: '200px', marginBottom: '20px'

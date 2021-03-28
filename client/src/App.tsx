@@ -20,7 +20,6 @@ export default function App() {
   const dispatch = useDispatch();
   const { data } = useQuery(CHECK_GRAPH)
   useEffect(() => {
-    console.log('check app', data)
     if (data?.check?.userId && data?.check?.userName) {
       dispatch(signInUser(data.check.userId, data.check.userName))
     }
