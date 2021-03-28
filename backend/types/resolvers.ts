@@ -8,6 +8,12 @@ interface ResolverMap {
     [key: string]: Resolver;
   };
 }
+interface ObjProductType {
+  id: string,
+  name: string,
+  price: string,
+  img: string,
+}
 export const resolvers: ResolverMap = {
   Query: {
     check: (_, __, { req }) => {

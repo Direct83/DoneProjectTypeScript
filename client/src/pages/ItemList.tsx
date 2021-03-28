@@ -28,8 +28,10 @@ export default function ItemList() {
     })()
   }, [pagination.page])
   const pages = [...Array(itemsLength)].map((e, i) => i + 1)
-  const clickHandler = async ({ target }: any) => {
-    switch (target.innerText) {
+  const clickHandler = async (event: React.MouseEvent<HTMLInputElement>) => {
+    const input = event.target as HTMLElement
+    const text: string = input.innerText
+    switch (text) {
       case '«':
         if (pagination.page !== 1) {
           setPagination((prevState) => ({ ...prevState, page: (prevState.page - 1) }))
@@ -41,7 +43,7 @@ export default function ItemList() {
         }
         break
       default:
-        setPagination((prevState) => ({ ...prevState, page: +target.innerText }))
+        setPagination((prevState) => ({ ...prevState, page: +text }))
     }
   }
   const addProd = async (idProd: number) => {
