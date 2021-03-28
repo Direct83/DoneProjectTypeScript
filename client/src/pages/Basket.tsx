@@ -40,11 +40,11 @@ export default function BasketPage() {
   }
   return (
     <>
-      <h1>BasketPage</h1>
+      <h1 style={{ textAlign: 'center' }}>BasketPage</h1>
       {isAuth ?
         (
           <>
-            <h2>Общая сумма заказа: {total}</h2>
+            <h2 style={{ textAlign: 'center' }}>Общая сумма заказа: {total}</h2>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <ol>
                 {basketState.map((el: BasketType) => {

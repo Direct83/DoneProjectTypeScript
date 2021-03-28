@@ -7,7 +7,7 @@ export default function HomePage() {
   const { isAuth } = useSelector((state: RootState) => state.auth);
   return (
     <>
-      <h1>HomePage</h1>
+      <h1 style={{ textAlign: 'center' }}>HomePage</h1>
       {!isAuth
         ? <div>Контент доступен только авторизованным пользователям</div>
         : (
