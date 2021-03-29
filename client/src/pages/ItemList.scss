@@ -26,6 +26,15 @@
     height: 40px;
   }
   img{
-    align-items: center;
+    width: 220px; 
+    height: 220px; 
+    margin-bottom: 20px; 
   }
+}
+
+.allItem{
+  display: flex;
+  width: 850px; 
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

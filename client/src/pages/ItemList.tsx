@@ -53,14 +53,14 @@ export default function ItemList() {
     <>
       <h1 style={{ textAlign: 'center' }}>ItemList</h1>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ width: '850px', display: 'flex', justifyContent: 'space-between', flexWrap: "wrap" }}>
+        <div className='allItem'>
           {itemsState.map((e: ItemsType) => {
             return (
               <div key={e.id + 'b'} className='itemFront'>
-                <img src={e.img} style={{ width: '100px', height: '100px', marginBottom: '20px' }} />
+                <img src={e.img} />
                 <div>Название: {e.name}</div>
                 <div>Цена: {e.price}</div>
-                <button onClick={() => addProd(e.id)} style={{ borderRadius: '5px' }}>Добавить в корзину</button>
+                <button onClick={() => addProd(e.id)} style={{ borderRadius: '5px', padding: '5px' }}>Добавить в корзину</button>
               </div>
             )
           }
