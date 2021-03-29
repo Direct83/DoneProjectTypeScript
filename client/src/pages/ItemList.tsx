@@ -54,13 +54,13 @@ export default function ItemList() {
       <h1 style={{ textAlign: 'center' }}>ItemList</h1>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div className='allItem'>
-          {itemsState.map((e: ItemsType) => {
+          {itemsState.map((el: ItemsType) => {
             return (
-              <div key={e.id + 'b'} className='itemFront'>
-                <img src={e.img} />
-                <div>Название: {e.name}</div>
-                <div>Цена: {e.price}</div>
-                <button onClick={() => addProd(e.id)} style={{ borderRadius: '5px', padding: '5px' }}>Добавить в корзину</button>
+              <div key={el.id + 'b'} className='itemFront'>
+                <img src={el.img} />
+                <div>Название: {el.name}</div>
+                <div>Цена: {el.price}</div>
+                <button onClick={() => addProd(el.id)}>Добавить в корзину</button>
               </div>
             )
           }
@@ -69,11 +69,11 @@ export default function ItemList() {
       </div>
       <div className="pagination" onClick={clickHandler}>
         <a>«</a>
-        {pages.map((e) => {
-          const classActive = pagination.page === e ? 'active' : ''
+        {pages.map((el) => {
+          const classActive = pagination.page === el ? 'active' : ''
           return (
-            <div key={e + 'a'}>
-              <a className={classActive}>{e}</a>
+            <div key={el + 'a'}>
+              <a className={classActive}>{el}</a>
             </div>
           )
         })}
